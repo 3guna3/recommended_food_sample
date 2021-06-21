@@ -18,6 +18,10 @@ Rails/FilePath:
   Exclude:
     - 'config/environments/development.rb'
 
+Rails/Output:
+  Exclude:
+    - 'db/seeds.rb'
+
 # 日本語のコメントを許可
 Style/AsciiComments:
   Enabled: false
