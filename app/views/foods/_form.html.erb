@@ -1,0 +1,13 @@
+<%= form_with model: @food, local: true do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </p>
+  <P>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </P>
+  <p>
+    <%= f.submit "送信" %>
+  </p>
+<% end %>
