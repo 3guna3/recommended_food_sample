@@ -27,7 +27,12 @@ class FoodsController < ApplicationController
     redirect_to @food
   end
 
-  def destroy; end
+  def destroy
+    @food = current_user.foods.find_by(id: params[:id])
+    redirect_to root_path, alert: "権限がありません" if @food.nil?
+    @food.destroy!
+    redirect_to @food
+  end
 
   private
 
