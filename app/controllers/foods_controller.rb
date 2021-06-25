@@ -16,9 +16,16 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  def edit; end
+  def edit
+    @food = Food.find(params[:id])
+  end
 
-  def update; end
+  def update
+    @food = current_user.foods.find_by(id: params[:id])
+    redirect_to root_path, alert: "権限がありません" if @food.nil?
+    @food.update!(food_params)
+    redirect_to @food
+  end
 
   def destroy; end
 
