@@ -1,0 +1,11 @@
+<h1>投稿詳細</h1>
+<p>【メールアドレス】<%= @food.user.email %></p>
+<p>【食品名】<%= @food.name %></p>
+<p>【コメント】<%= simple_format(h(@food.comment)) %></p>
+<% if current_user.id == @food.user_id %>
+  <p>
+    <%= link_to "編集", edit_food_path(@food) %>
+    <%= link_to "削除", food_path(@food), method: :delete, data: { confirm: "削除しますか？" } %>
+  </p>
+<% end %>
+<p><%= link_to "投稿一覧へ", foods_path %></p>
