@@ -7,3 +7,6 @@ ja:
         name: 料理名
         comment: コメント
         user: ユーザー
+      like:
+        user: ユーザー
+        food: 料理
