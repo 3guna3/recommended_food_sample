@@ -7,9 +7,9 @@
 <p>【コメント】<%= simple_format(h(@food.comment)) %></p>
 <p>
   <% if @food.liked_by?(current_user) %>
-    <%= link_to "★", food_likes_path(@food), method: :delete %>
+    <%= render "like", food: @food %>
   <% else %>
-    <%= link_to "☆", food_likes_path(@food), method: :post %>
+    <%= render "dislike", food: @food %>
   <% end %>
 </p>
 <% if current_user.id == @food.user_id %>
