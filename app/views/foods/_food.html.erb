@@ -1,7 +1,7 @@
 <div>
   <p>【メールアドレス】<%= food.user.email %></p>
   <p>【食品名】<%= food.name %></p>
-  <p>
+  <p id="food-<%= food.id %>">
     <% if food.liked_by?(current_user) %>
       <%= render "like", food: food %>
     <% else %>

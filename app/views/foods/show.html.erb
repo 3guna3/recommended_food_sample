@@ -5,7 +5,7 @@
   <p><%= image_tag @food.image.url  %></p>
 <% end %>
 <p>【コメント】<%= simple_format(h(@food.comment)) %></p>
-<p>
+<p id="food-<%= @food.id %>">
   <% if @food.liked_by?(current_user) %>
     <%= render "like", food: @food %>
   <% else %>
