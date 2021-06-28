@@ -5,6 +5,13 @@
   <p><%= image_tag @food.image.url  %></p>
 <% end %>
 <p>【コメント】<%= simple_format(h(@food.comment)) %></p>
+<p id="food-<%= @food.id %>">
+  <% if @food.liked_by?(current_user) %>
+    <%= render "like", food: @food %>
+  <% else %>
+    <%= render "dislike", food: @food %>
+  <% end %>
+</p>
 <% if current_user.id == @food.user_id %>
   <p>
     <%= link_to "編集", edit_food_path(@food) %>
